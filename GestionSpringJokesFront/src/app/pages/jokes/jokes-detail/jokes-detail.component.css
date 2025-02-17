@@ -1,0 +1,48 @@
+/* Contenedor general */
+.joke-detail-container {
+    margin: 20px;
+  }
+  
+  /* Reutilizamos la clase .header si quieres un look similar */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Tarjeta donde se muestra la info del chiste */
+  .joke-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    /* Sombra para darle efecto “card” */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Título dentro de la tarjeta */
+  .joke-card .title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  
+  /* Contenido del chiste */
+  .joke-content p {
+    margin: 0 0 10px;
+    font-size: 16px;
+  }
+  
+  /* Los “flags” como pequeñas etiquetas */
+  .flag-badge {
+    display: inline-block;
+    background-color: #1976d2;
+    color: #fff;
+    border-radius: 12px;
+    padding: 5px 10px;
+    margin-right: 6px;
+    font-size: 14px;
+  }
+  

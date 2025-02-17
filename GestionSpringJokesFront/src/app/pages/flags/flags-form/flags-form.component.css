@@ -1,0 +1,94 @@
+/* Fondo con gradiente */
+.background-gradient {
+  min-height: 100vh;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor principal */
+.flag-form-wrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Tarjeta Material */
+.flag-form-card {
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  background-color: #fff;
+}
+
+/* Título de la tarjeta */
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Icono en el título */
+.card-title mat-icon {
+  color: #f1c40f;
+  font-size: 1.8rem;
+}
+
+/* Estilo del formulario */
+.flag-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Campos del formulario */
+.form-field {
+  width: 100%;
+}
+
+/* Estilo del mat-select (si se usara en algún otro caso) */
+mat-select {
+  width: 100%;
+}
+
+/* Botones */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.button-group button {
+  min-width: 120px;
+}
+
+/* Estilos para snackbars */
+::ng-deep .success-snackbar {
+  background-color: #28a745 !important;
+  color: #fff !important;
+}
+
+::ng-deep .error-snackbar {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+}
+
+/* Contenedor de carga */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.loading-container p {
+  font-size: 1.2rem;
+  color: #555;
+}

@@ -1,0 +1,30 @@
+<div class="type-detail-container" *ngIf="type">
+  <h2>Detalles del Tipo</h2>
+
+  <div class="detail">
+    <strong>ID:</strong> {{ type.id }}
+  </div>
+
+  <div class="detail">
+    <strong>Nombre:</strong> {{ type.type }}
+  </div>
+
+  <div class="detail">
+    <strong>Chistes Relacionados:</strong>
+    <span *ngIf="jokes.length > 0">{{ jokes.length }} chistes</span>
+    <span *ngIf="jokes.length === 0">Sin chistes</span>
+
+    <!-- Lista de chistes -->
+    <ul *ngIf="jokes.length > 0" class="joke-list">
+      <li *ngFor="let joke of jokes">
+        <strong>ID:</strong> {{ joke.id }} <br>
+        <strong>Texto 1:</strong> {{ joke.text1 }} <br>
+        <strong *ngIf="joke.text2">Texto 2:</strong> {{ joke.text2 }} <br>
+      </li>
+    </ul>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="volverAtras()">
+    Volver Atrás
+  </button>
+</div>

@@ -1,0 +1,76 @@
+<div class="joke-list-container">
+  <div class="header horizontal">
+    <!-- Título -->
+    <div class="title-container">
+      <h1>Listado de Chistes con Primera Vez</h1>
+    </div>
+    <!-- Buscador -->
+    <div class="search-container">
+      <input class="search-input" type="text" placeholder="Buscar por contenido" [(ngModel)]="filtro"
+        (input)="aplicarFiltro()" />
+      <button class="search-button" (click)="aplicarFiltro()">🔍</button>
+    </div>
+    <!-- Botones de acción -->
+    <div class="button-container">
+      <button mat-raised-button color="accent" routerLink="/jokes">Mostrar Todos</button>
+      <button mat-raised-button color="primary" routerLink="/jokes/nuevo">Nuevo Chiste</button>
+    </div>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+   <!-- Columna ID -->
+<ng-container matColumnDef="id">
+  <th mat-header-cell *matHeaderCellDef>ID</th>
+  <td mat-cell *matCellDef="let joke">
+    <span class="badge bg-primary rounded-pill">{{ joke.idJoke }}</span>
+  </td>
+</ng-container>
+
+
+    <!-- Columna Contenido 1 -->
+    <ng-container matColumnDef="text1">
+      <th mat-header-cell *matHeaderCellDef>Contenido 1</th>
+      <td mat-cell *matCellDef="let joke">{{ joke.text1 }}</td>
+    </ng-container>
+
+    <!-- Columna Contenido 2 -->
+    <ng-container matColumnDef="text2">
+      <th mat-header-cell *matHeaderCellDef>Contenido 2</th>
+      <td mat-cell *matCellDef="let joke">{{ joke.text2 }}</td>
+    </ng-container>
+
+    <!-- Columna Categoría -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Categoría</th>
+      <td mat-cell *matCellDef="let joke">{{ joke.category || 'Sin categoría' }}</td>
+    </ng-container>
+
+    <!-- Columna Idioma -->
+    <ng-container matColumnDef="language">
+      <th mat-header-cell *matHeaderCellDef>Idioma</th>
+      <td mat-cell *matCellDef="let joke">{{ joke.language || 'Sin idioma' }}</td>
+    </ng-container>
+
+    <!-- Columna para datos de Primera Vez -->
+    <ng-container matColumnDef="primeraVez">
+      <th mat-header-cell *matHeaderCellDef>Primera Vez</th>
+      <td mat-cell *matCellDef="let joke">
+        <div *ngIf="joke.hasPrimeraVez; else sinRegistro">
+          <strong>Programa:</strong> {{ joke.programa }}<br>
+          <strong>Fecha:</strong> {{ joke.fechaEmision | date }}<br>
+          <strong>Teléfonos:</strong> {{ joke.telefonos.join(', ') }}
+        </div>
+        <ng-template #sinRegistro>
+          Sin registro
+        </ng-template>
+        
+      </td>
+    </ng-container>
+
+    <!-- Filas de la tabla -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[15, 30, 45]" showFirstLastButtons></mat-paginator>
+</div>

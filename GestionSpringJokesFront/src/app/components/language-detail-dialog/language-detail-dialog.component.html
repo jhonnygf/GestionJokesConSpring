@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Detalle del Idioma</h2>
+
+<mat-dialog-content class="dialog-content">
+  <p><strong>ID:</strong> {{ data.id }}</p>
+  <p><strong>Idioma:</strong> {{ data.language }}</p>
+  <p *ngIf="data.code"><strong>Código:</strong> {{ data.code }}</p>
+  
+  <p><strong>Chistes Asociados:</strong></p>
+  <ul *ngIf="data.jokes && data.jokes.length > 0">
+    <li *ngFor="let joke of data.jokes">
+      {{ joke }}
+    </li>
+  </ul>
+  <p *ngIf="!data.jokes || data.jokes.length === 0">No hay chistes asociados.</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

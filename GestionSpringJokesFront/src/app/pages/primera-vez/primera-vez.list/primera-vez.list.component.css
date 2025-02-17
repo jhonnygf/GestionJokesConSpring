@@ -1,0 +1,154 @@
+/* Reutilizamos la clase joke-list-container para la uniformidad */
+.joke-list-container {
+  margin: 20px;
+}
+
+/* Si se requiere un estilo específico para la lista de Primera Vez, se puede combinar con la clase existente */
+.primera-vez-list-container {
+  /* Puedes agregar aquí ajustes propios si los necesitas */
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Encabezado (mismo estilo que en la lista de chistes) */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Contenedor de acciones en el encabezado */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Si deseas agregar un campo de búsqueda, puedes reutilizar estos estilos (aunque en este ejemplo no lo incluimos) */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid #1976d2;
+  border-radius: 25px;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 16px;
+  padding: 8px 10px;
+  background: transparent;
+}
+
+.search-button {
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+/* Tabla: estilo uniforme para ambas listas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+table thead {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+table thead th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 500;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+table tbody td {
+  padding: 12px 15px;
+}
+
+/* Estilos para la lista de teléfonos */
+table tbody td ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+table tbody td ul li {
+  background-color: #f9f9f9;
+  padding: 5px 8px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Estilos para los botones de acción en la tabla */
+table tbody td button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+/* Botón Editar */
+table tbody td button:first-of-type {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+table tbody td button:first-of-type:hover {
+  background-color: #1565c0;
+}
+
+/* Botón Eliminar */
+table tbody td button:last-of-type {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+table tbody td button:last-of-type:hover {
+  background-color: #c62828;
+}
+
+/* Ejemplo de estilo para badges (si se usan) */
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.bg-primary {
+  background-color: #1976d2;
+  color: #fff;
+}

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Detalle del Type</h2>
+<mat-dialog-content class="dialog-content">
+  <p><strong>ID:</strong> {{ data.id }}</p>
+  <p><strong>Type:</strong> {{ data.type }}</p>
+  <p><strong>Chistes Asociados:</strong></p>
+  <ul *ngIf="data.jokeses.length > 0; else noJokes">
+    <li *ngFor="let joke of data.jokeses">
+      {{ joke }}
+    </li>
+  </ul>
+  <ng-template #noJokes>
+    <p>No hay chistes asociados.</p>
+  </ng-template>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

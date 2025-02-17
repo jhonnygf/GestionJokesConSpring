@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Confirmar eliminación</h2>
+<mat-dialog-content>
+  <p>La categoría "<strong>{{ data.categoryName }}</strong>" tiene
+     <strong>{{ data.jokesCount }}</strong> chistes asociados.</p>
+  <p>Si continúas, se eliminarán <strong>todos los chistes</strong> junto con la categoría. Esta acción es irreversible.</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="warn" (click)="onConfirmDelete()">Eliminar</button>
+  <button mat-button mat-dialog-close (click)="onCancel()">Cancelar</button>
+</mat-dialog-actions>

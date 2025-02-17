@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>
+    Detalle del Chiste con id {{ data.id }}
+  </h2>
+  
+  <mat-dialog-content class="dialog-content">
+    <p><strong>Texto 1:</strong> {{ data.text1 }}</p>
+    <p><strong>Texto 2:</strong> {{ data.text2 || 'null' }}</p>
+    <p><strong>Categoría:</strong> {{ data.category }}</p>
+    <p><strong>Idioma:</strong> {{ data.language }}</p>
+  
+    <p><strong>Flags:</strong>
+      <span *ngFor="let flag of data.flagses" class="flag-badge">{{ flag }}</span>
+    </p>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button mat-stroked-button mat-dialog-close>Cerrar</button>
+  </mat-dialog-actions>  

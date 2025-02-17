@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Confirmar eliminación</h2>
+<mat-dialog-content>
+    <p>El idioma "<strong>{{ data.languageName }}</strong>" tiene
+        <strong>{{ data.jokesCount }}</strong> chistes asociados.
+    </p>
+    <p>
+        Si continúas, se eliminarán <strong>todos los chistes</strong> junto con el idioma.
+        Esta acción es irreversible.
+    </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button color="warn" (click)="onConfirmDelete()">Eliminar</button>
+    <button mat-button (click)="onCancel()">Cancelar</button>
+</mat-dialog-actions>

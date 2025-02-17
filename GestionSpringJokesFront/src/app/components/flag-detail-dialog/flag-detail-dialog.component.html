@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>Detalle de la Flag</h2>
+<mat-dialog-content class="dialog-content">
+  <p><strong>ID:</strong> {{ data.id }}</p>
+  <p><strong>Nombre:</strong> {{ data.flag }}</p>
+  <p><strong>Chistes Asociados:</strong></p>
+  <ul *ngIf="data.jokes && data.jokes.length > 0; else noJokes">
+    <li *ngFor="let joke of data.jokes">{{ joke }}</li>
+  </ul>
+  <ng-template #noJokes>
+    <p>No hay chistes asociados.</p>
+  </ng-template>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

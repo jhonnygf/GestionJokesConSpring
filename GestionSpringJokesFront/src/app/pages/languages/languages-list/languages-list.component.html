@@ -1,0 +1,62 @@
+<div class="languages-list-container">
+  <div class="header">
+    <h1>Listado de Idiomas</h1>
+    <div class="search-container">
+      <input class="search-input" type="text" placeholder="Buscar idioma" [(ngModel)]="filtro"
+        (input)="aplicarFiltro()" />
+      <button class="search-button" (click)="aplicarFiltro()">🔍</button>
+    </div>
+    <button mat-raised-button color="primary" routerLink="/languages/nuevo">
+      Nuevo Idioma
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Columna ID -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let language">
+        <span class="badge bg-primary rounded-pill">{{ language.id }}</span>
+      </td>
+    </ng-container>
+
+    <!-- Columna Idioma -->
+    <ng-container matColumnDef="language">
+      <th mat-header-cell *matHeaderCellDef>Idioma</th>
+      <td mat-cell *matCellDef="let language">{{ language.language }}</td>
+    </ng-container>
+
+    <!-- Columna Chistes Relacionados -->
+    <ng-container matColumnDef="jokeCount">
+      <th mat-header-cell *matHeaderCellDef>Chistes Relacionados</th>
+      <td mat-cell *matCellDef="let language">
+        <span *ngIf="language.jokeCount > 0">{{ language.jokeCount }} chistes</span>
+        <span *ngIf="language.jokeCount === 0">Sin chistes</span>
+      </td>
+    </ng-container>
+
+    <!-- Columna Acciones -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let language">
+        <!-- Botón Consultar -->
+        <button class="btn btn-success btn-sm me-2" (click)="consultarLanguage(language.id)">
+          🔍 Consultar
+        </button>
+        <!-- Botón Editar -->
+        <button class="btn btn-warning btn-sm me-2" [routerLink]="['/languages/editar', language.id]">
+          ✏️ Editar
+        </button>
+        <!-- Botón Eliminar -->
+        <button class="btn btn-danger btn-sm" (click)="verificarEliminarLanguage(language)">
+          🗑️ Eliminar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+</div>

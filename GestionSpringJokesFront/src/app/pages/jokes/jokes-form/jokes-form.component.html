@@ -1,0 +1,88 @@
+<div class="background-gradient">
+  <div class="joke-form-wrapper">
+    <mat-card class="joke-form-card" *ngIf="!loading; else loadingTemplate">
+      <mat-card-title class="card-title">
+        <mat-icon>emoji_emotions</mat-icon>
+        {{ isEditMode ? 'Editar Chiste' : 'Nuevo Chiste' }}
+      </mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="jokeForm" (ngSubmit)="guardarJoke()" class="joke-form">
+          
+          <!-- TEXT1 -->
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Texto principal (obligatorio)</mat-label>
+            <textarea matInput rows="3" formControlName="text1"></textarea>
+            <mat-error *ngIf="jokeForm.get('text1')?.invalid">
+              El contenido es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <!-- TEXT2 -->
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Texto secundario (opcional)</mat-label>
+            <textarea matInput rows="3" formControlName="text2"></textarea>
+          </mat-form-field>
+
+          <!-- CATEGORY -->
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Categoría</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor="let cat of categories" [value]="cat.id">
+                {{ cat.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="jokeForm.get('category')?.invalid">
+              Debes elegir una categoría.
+            </mat-error>
+          </mat-form-field>
+
+          <!-- LANGUAGE -->
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Idioma</mat-label>
+            <mat-select formControlName="language">
+              <mat-option *ngFor="let lang of languages" [value]="lang.id">
+                {{ lang.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="jokeForm.get('language')?.invalid">
+              Debes elegir un idioma.
+            </mat-error>
+          </mat-form-field>
+
+          <!-- FLAGS (checkboxes) -->
+          <div class="flags-group">
+            <label class="flags-title">Flags (opcional)</label>
+            <div formArrayName="flags" class="flags-container" 
+                 [class.hidden]="flags.length === 0">
+              <div *ngFor="let flag of flags; let i=index" class="flag-checkbox">
+                <mat-checkbox [formControlName]="i">
+                  {{ flag.name }}
+                </mat-checkbox>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOTONES -->
+          <div class="button-group">
+            <button mat-raised-button color="primary" type="submit" [disabled]="jokeForm.invalid">
+              {{ isEditMode ? 'Actualizar' : 'Crear' }}
+            </button>
+            <button mat-stroked-button color="warn" routerLink="/jokes">
+              Cancelar
+            </button>
+          </div>
+
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Plantilla de carga (spinner) -->
+    <ng-template #loadingTemplate>
+      <div class="loading-container">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        <p>Cargando...</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

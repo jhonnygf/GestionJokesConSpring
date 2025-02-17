@@ -1,0 +1,17 @@
+<mat-card class="joke-card" *ngIf="joke">
+  <mat-card-header>
+    <mat-card-title>Chiste #{{ joke.id }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p><strong>Texto 1:</strong> {{ joke.text1 }}</p>
+    <p><strong>Texto 2:</strong> {{ joke.text2 || 'No aplica' }}</p>
+    <p><strong>Categoría:</strong> {{ joke.category }}</p>
+    <p><strong>Idioma:</strong> {{ joke.language }}</p>
+    <p><strong>Flags:</strong>
+      <span *ngFor="let flag of joke.flagses" class="flag-badge">
+        {{ flag }}
+      </span>
+    </p>
+  </mat-card-content>
+</mat-card>

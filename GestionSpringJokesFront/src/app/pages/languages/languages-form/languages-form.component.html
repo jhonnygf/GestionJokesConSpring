@@ -1,0 +1,47 @@
+<div class="background-gradient">
+  <div class="language-form-wrapper">
+    <mat-card class="language-form-card" *ngIf="!loading; else loadingTemplate">
+      <mat-card-title class="card-title">
+        <mat-icon>language</mat-icon>
+        {{ isEditMode ? 'Editar Idioma' : 'Nuevo Idioma' }}
+      </mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="languageForm" (ngSubmit)="guardarLanguage()" class="language-form">
+          <!-- Mostrar el ID solo en modo edición -->
+          <mat-form-field *ngIf="isEditMode" appearance="fill" class="form-field">
+            <mat-label>ID del Idioma</mat-label>
+            <input matInput formControlName="id" readonly />
+          </mat-form-field>
+
+          <!-- Nombre del Idioma -->
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Nombre del Idioma</mat-label>
+            <input matInput formControlName="language" />
+            <mat-error *ngIf="languageForm.get('language')?.invalid">
+              El nombre del idioma es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <!-- BOTONES -->
+          <div class="button-group">
+            <button mat-raised-button color="primary" type="submit" [disabled]="languageForm.invalid">
+              {{ isEditMode ? 'Guardar' : 'Crear' }}
+            </button>
+            <button mat-stroked-button color="warn" routerLink="/languages">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Plantilla para mostrar mientras se carga -->
+    <ng-template #loadingTemplate>
+      <div class="loading-container">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        <p>Cargando...</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

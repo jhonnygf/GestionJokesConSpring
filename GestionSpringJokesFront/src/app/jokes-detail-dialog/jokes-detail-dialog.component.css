@@ -1,0 +1,14 @@
+.dialog-content p {
+    margin: 5px 0;
+  }
+  
+  .flag-badge {
+    display: inline-block;
+    background-color: #1976d2;
+    color: #fff;
+    border-radius: 12px;
+    padding: 3px 8px;
+    margin-right: 6px;
+    font-size: 0.875rem;
+  }
+  

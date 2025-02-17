@@ -1,0 +1,48 @@
+<div class="background-gradient">
+  <div class="flag-form-wrapper">
+    <mat-card class="flag-form-card" *ngIf="!loading; else loadingTemplate">
+      <mat-card-title class="card-title">
+        <mat-icon>flag</mat-icon>
+        {{ isEditMode ? 'Editar Flag' : 'Nueva Flag' }}
+      </mat-card-title>
+
+      <mat-card-content>
+        <form [formGroup]="flagForm" (ngSubmit)="guardarFlag()" class="flag-form">
+          <!-- Campo de ID: solo se muestra en modo edición -->
+          <mat-form-field *ngIf="isEditMode" appearance="fill" class="form-field">
+            <mat-label>ID de la Flag</mat-label>
+            <input matInput formControlName="id" readonly />
+          </mat-form-field>
+
+          <!-- Campo para el nombre de la Flag -->
+          <mat-form-field appearance="fill" class="form-field">
+            <mat-label>Nombre de la Flag</mat-label>
+            <input matInput formControlName="flag" />
+            <mat-error *ngIf="flagForm.get('flag')?.invalid">
+              El nombre es obligatorio y debe tener entre 3 y 20 caracteres.
+            </mat-error>
+          </mat-form-field>
+
+          <!-- BOTONES -->
+          <div class="button-group">
+            <button mat-raised-button color="primary" type="submit" [disabled]="flagForm.invalid">
+              {{ isEditMode ? 'Guardar' : 'Crear' }}
+            </button>
+
+            <button mat-stroked-button color="warn" routerLink="/flags">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Plantilla de carga -->
+    <ng-template #loadingTemplate>
+      <div class="loading-container">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        <p>Cargando...</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

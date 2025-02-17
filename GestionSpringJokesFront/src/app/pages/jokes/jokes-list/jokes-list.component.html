@@ -1,0 +1,88 @@
+<div class="joke-list-container">
+  <div class="header">
+    <h1>Listado de Chistes</h1>
+    <div class="search-container">
+      <input class="search-input" type="text" placeholder="Buscar por contenido" [(ngModel)]="filtro"
+        (input)="aplicarFiltro()" />
+      <button class="search-button" (click)="aplicarFiltro()">🔍</button>
+    </div>
+    <!-- Nuevo botón para alternar la vista -->
+    <button mat-raised-button color="primary" (click)="toggleFilterFlags()">
+      {{ mostrarSinFlags ? 'Mostrar Todos' : 'Mostrar Sin Flags' }}
+    </button>
+    <button mat-raised-button color="primary" routerLink="/jokes/nuevo">Nuevo Chiste</button>
+    <button mat-raised-button color="primary" routerLink="/primeravez/jokes">Jokes con 1ª vez</button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Columna ID -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let joke">
+        <span class="badge bg-primary rounded-pill">{{ joke.id }}</span>
+      </td>
+    </ng-container>
+
+    <!-- Columna Contenido 1 -->
+    <ng-container matColumnDef="contenido1">
+      <th mat-header-cell *matHeaderCellDef>Contenido 1</th>
+      <td mat-cell *matCellDef="let joke">{{ joke.text1 }}</td>
+    </ng-container>
+
+    <!-- Columna Contenido 2 -->
+    <ng-container matColumnDef="contenido2">
+      <th mat-header-cell *matHeaderCellDef>Contenido 2</th>
+      <td mat-cell *matCellDef="let joke">{{ joke.text2 }}</td>
+    </ng-container>
+
+    <!-- Columna Categoría -->
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef>Categoría</th>
+      <td mat-cell *matCellDef="let joke">{{ joke.category || 'Sin categoría' }}</td>
+    </ng-container>
+
+    <!-- Columna Idioma -->
+    <ng-container matColumnDef="idioma">
+      <th mat-header-cell *matHeaderCellDef>Idioma</th>
+      <td mat-cell *matCellDef="let joke">{{ joke.language || 'Sin idioma' }}</td>
+    </ng-container>
+
+    <!-- Columna Flags -->
+    <ng-container matColumnDef="flagsCount">
+      <th mat-header-cell *matHeaderCellDef>Flags</th>
+      <td mat-cell *matCellDef="let joke">
+        <span class="badge bg-info rounded-pill">
+          {{ joke.flagsCount }}
+        </span>
+      </td>
+    </ng-container>
+
+    <!-- Nueva columna para agregar botón "Primera Vez" -->
+    <ng-container matColumnDef="primeraVez">
+      <th mat-header-cell *matHeaderCellDef>Primera Vez</th>
+      <td mat-cell *matCellDef="let joke">
+        <button mat-raised-button color="primary" (click)="abrirPrimeraVezForm(joke.id)"
+          [disabled]="joke.tienePrimeraVez">
+          {{ joke.tienePrimeraVez ? 'Registrado' : 'Agregar' }}
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Columna Acciones -->
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let joke">
+
+        <button class="btn btn-success btn-sm me-2" (click)="verDetalle(joke)"> 🔍 Consultar</button>
+        <button class="btn btn-warning btn-sm me-2" routerLink="/jokes/editar/{{ joke.id }}"> ✏️ Editar</button>
+        <button class="btn btn-danger btn-sm" (click)="eliminarJoke(joke.id)">🗑️ Eliminar</button>
+      </td>
+    </ng-container>
+
+    <!-- Agregar filas a la tabla -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[15, 30, 45]" showFirstLastButtons></mat-paginator>
+</div>

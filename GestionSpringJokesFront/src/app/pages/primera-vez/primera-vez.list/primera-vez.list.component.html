@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <h2>🔰 Lista de Primeras Veces</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Programa</th>
+        <th>Fecha Emisión</th>
+        <th>Joke ID</th>
+        <th>Teléfonos</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pv of primeraVezList">
+        <td>{{ pv.id }}</td>
+        <td>{{ pv.programa }}</td>
+        <td>{{ pv.fechaEmision }}</td>
+        <td>{{ pv.jokeId }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let tel of pv.telefonos">{{ tel.numero }}</li>
+
+          </ul>
+        </td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2" (click)="editRegistro(pv)">✏️ Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteRegistro(pv.id)">🗑️ Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 🔹 Formulario de edición -->
+<div *ngIf="editMode" class="container mt-4">
+  <h3>✏️ Editar Primera Vez</h3>
+  <form (ngSubmit)="saveEdit()">
+    <div class="mb-3">
+      <label for="programa">Programa:</label>
+      <input id="programa" [(ngModel)]="selectedPrimeraVez!.programa" name="programa" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label for="fecha">Fecha de Emisión:</label>
+      <input id="fecha" [(ngModel)]="selectedPrimeraVez!.fechaEmision" name="fecha" type="date" class="form-control">
+    </div>
+
+    <div class="mb-3">
+      <label>📞 Teléfonos:</label>
+      <div *ngFor="let tel of selectedPrimeraVez!.telefonos; let i = index" class="d-flex align-items-center mb-2">
+        <input [(ngModel)]="selectedPrimeraVez!.telefonos[i].numero" name="telefono{{i}}" class="form-control me-2">
+        <!-- Botón para eliminar el teléfono -->
+        <button type="button" class="btn btn-danger" (click)="removeTelefono(i)">🗑️</button>
+      </div>
+      <!-- Opción para agregar un nuevo teléfono si lo deseas -->
+      <button type="button" class="btn btn-secondary mt-2" (click)="addTelefono()">➕ Agregar teléfono</button>
+    </div>
+
+
+    <button class="btn btn-success me-2" type="submit">💾 Guardar</button>
+    <button class="btn btn-secondary" type="button" (click)="cancelEdit()">❌ Cancelar</button>
+  </form>
+</div>

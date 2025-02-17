@@ -1,0 +1,54 @@
+/* Contenedor general del diálogo */
+.mat-dialog-container {
+  padding: 0;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, #ffffff, #e6f7ff);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Título del diálogo */
+.mat-dialog-title {
+  background-color: #4facfe;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 16px;
+  margin: 0;
+}
+
+/* Contenido del diálogo */
+.dialog-content {
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.dialog-content p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Lista de chistes asociados */
+.dialog-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0;
+}
+
+.dialog-content li {
+  background: #f1f8ff;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #555;
+}
+
+/* Acciones del diálogo (botones) */
+.mat-dialog-actions {
+  background-color: #f0f0f0;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: flex-end;
+}

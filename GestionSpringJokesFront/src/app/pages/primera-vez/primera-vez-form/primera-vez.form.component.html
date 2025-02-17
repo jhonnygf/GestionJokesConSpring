@@ -1,0 +1,44 @@
+<div class="background-gradient">
+  <div class="flag-form-wrapper">
+    <mat-card class="flag-form-card">
+      <mat-card-title class="card-title">
+        <mat-icon>emoji_emotions</mat-icon> Primera Vez en TV
+      </mat-card-title>
+
+      <form [formGroup]="primeraVezForm" (ngSubmit)="onSubmit()" class="flag-form">
+        <mat-form-field class="form-field">
+          <mat-label>Programa</mat-label>
+          <input matInput formControlName="programa" type="text" placeholder="Nombre del programa">
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Fecha de Emisión</mat-label>
+          <input matInput formControlName="fechaEmision" type="date">
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Chiste</mat-label>
+          <input matInput [value]="primeraVezForm.get('jokeId')?.value" disabled>
+        </mat-form-field>
+
+        <div formArrayName="telefonos">
+          <div *ngFor="let telCtrl of telefonos.controls; let i = index">
+            <mat-form-field class="form-field">
+              <mat-label>Teléfono {{ i + 1 }}</mat-label>
+              <input matInput [formControlName]="i" type="text" placeholder="Número de teléfono">
+            </mat-form-field>
+            <button mat-icon-button color="warn" (click)="removeTelefono(i)" *ngIf="telefonos.length > 1">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+          <button mat-button color="primary" (click)="addTelefono()">Agregar Teléfono</button>
+        </div>
+
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit">Guardar</button>
+          <button mat-button color="warn" routerLink="/jokes">Cancelar</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

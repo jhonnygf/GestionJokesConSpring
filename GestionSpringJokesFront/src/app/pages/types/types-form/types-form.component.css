@@ -1,0 +1,80 @@
+/* Fondo degradado */
+.background-gradient {
+    min-height: 100vh;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Contenedor principal del formulario */
+  .type-form-wrapper {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+  
+  /* Tarjeta del formulario */
+  .type-form-card {
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    background-color: #fff;
+  }
+  
+  /* Título de la tarjeta */
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+  
+  /* Icono del título */
+  .card-title mat-icon {
+    color: #4facfe;
+    font-size: 1.8rem;
+  }
+  
+  /* Estilo del formulario */
+  .type-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* Campos del formulario */
+  .form-field {
+    width: 100%;
+  }
+  
+  /* Botones */
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+  
+  .button-group button {
+    min-width: 120px;
+  }
+  
+  /* Contenedor de carga */
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .loading-container p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  

@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Confirmar eliminación</h2>
+<mat-dialog-content>
+  <p>El type <strong>{{ data.typeName }}</strong> tiene <strong>{{ data.jokesCount }}</strong> chistes asociados.</p>
+  <p>¿Estás seguro de que deseas eliminarlo junto con todos sus chistes?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true">Sí, eliminar</button>
+</mat-dialog-actions>

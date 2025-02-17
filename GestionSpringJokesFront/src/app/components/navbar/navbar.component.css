@@ -1,0 +1,46 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s, color 0.3s;
+
+  /* Efecto hover para los enlaces */
+  .nav-link {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #007bff; /* Azul estándar de Bootstrap */
+    transition: color 0.3s, transform 0.3s;
+
+    &:hover {
+      color: #0056b3; /* Azul más oscuro */
+      text-decoration: underline; /* Subrayado al pasar el cursor */
+      transform: scale(1.05); /* Ligeramente más grande */
+    }
+  }
+
+  .btn {
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      background-color: #0056b3; /* Cambia el color del botón al pasar */
+      color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Efecto sombra */
+    }
+  }
+}
+
+/* Personalización del modo claro */
+.bg-light {
+  background-color: #e3f2fd !important; /* Azul claro */
+  color: #000;
+}
+
+/* Personalización del modo oscuro */
+.bg-dark {
+  background-color: #343a40 !important; /* Fondo oscuro */
+  color: #fff;
+}
+.main-content {
+  padding-top: 80px; 
+}

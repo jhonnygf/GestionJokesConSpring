@@ -1,0 +1,36 @@
+<nav class="navbar border-bottom border-body" 
+  [ngClass]="{ 'bg-dark navbar-dark': isDarkMode, 'bg-light navbar-light': !isDarkMode }" 
+  [style.backgroundColor]="!isDarkMode ? '#e3f2fd' : ''">
+  
+  <div class="container-fluid">
+    <!-- 🔹 CORREGIDO: Se usa routerLink en lugar de href -->
+    <a class="navbar-brand" routerLink="/home">🏠 Menú Principal</a>
+
+    <!-- Opciones en horizontal -->
+    <ul class="navbar-nav flex-row">
+      <li class="nav-item me-3">
+        <a class="nav-link" routerLink="/jokes"> 📜 Jokes</a>
+      </li>
+      <li class="nav-item me-3">
+        <a class="nav-link" routerLink="/categories"> 🏷️ Categorías</a>
+      </li>
+      <li class="nav-item me-3">
+        <a class="nav-link" routerLink="/languages"> 🌎 Idiomas</a>
+      </li>
+      <li class="nav-item me-3">
+        <a class="nav-link" routerLink="/flags"> 🚩 Flags</a>
+      </li>
+      <li class="nav-item me-3">
+        <a class="nav-link" routerLink="/types"> ✅ Tipos</a>
+      </li>
+      <li class="nav-item me-3">
+        <a class="nav-link" routerLink="/primeravez"> 🕰️ Primera Vez</a>
+      </li>
+    </ul>
+
+    <!-- Botón para alternar entre modo claro y oscuro -->
+    <button class="btn btn-outline-primary me-2" (click)="toggleDarkMode()">
+      {{ isDarkMode ? ' 🌞 Modo Claro' : ' 🌙 Modo Oscuro' }}
+    </button>
+  </div>
+</nav>

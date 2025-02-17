@@ -1,0 +1,75 @@
+/* Fondo degradado */
+.background-gradient {
+  min-height: 100vh;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor principal del formulario */
+.language-form-wrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Tarjeta del formulario */
+.language-form-card {
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  background-color: #fff;
+}
+
+/* Título */
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 1rem;
+}
+
+/* Formulario */
+.language-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Campos del formulario */
+.form-field {
+  width: 100%;
+}
+
+/* Botones */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* Estilos para mensajes (snackbars) */
+.success-snackbar {
+  background-color: #28a745 !important;
+  color: #fff !important;
+}
+
+.error-snackbar {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+}
+
+/* Contenedor de carga */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}

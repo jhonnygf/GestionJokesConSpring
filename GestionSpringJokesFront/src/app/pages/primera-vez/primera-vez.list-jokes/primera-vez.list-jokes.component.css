@@ -1,0 +1,35 @@
+.header.horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que se acomoden en varias líneas si la pantalla es pequeña */
+    gap: 1rem; /* Espacio entre elementos */
+    margin-bottom: 1rem;
+  }
+  
+  /* Opcional: Ajusta el ancho de cada contenedor interno */
+  .title-container {
+    flex: 2; /* O un ancho fijo, según necesites */
+  }
+  
+  .search-container {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .button-container {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* Ajusta la entrada de búsqueda */
+  .search-input {
+    width: 100%;
+    max-width: 300px;
+  }
+  

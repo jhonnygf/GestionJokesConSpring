@@ -1,0 +1,126 @@
+/* Fondo con gradiente */
+.background-gradient {
+  min-height: 100vh;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor principal */
+.joke-form-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Tarjeta Material */
+.joke-form-card {
+  min-width: 500px; /* Ajusta el ancho mínimo para evitar que los botones salten */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #444;
+
+    mat-icon {
+      color: #f1c40f;
+      font-size: 1.8rem;
+    }
+  }
+}
+
+/* Formulario */
+.joke-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Campos de formulario */
+.form-field {
+  width: 100%;
+}
+
+/* Grupo de flags */
+.flags-group {
+  display: flex;
+  flex-direction: column;
+  min-height: 80px; /* 🔹 Mantiene espacio incluso si no hay flags */
+  
+  .flags-title {
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #555;
+  }
+
+  .flags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    min-height: 50px; /* 🔹 Evita que desaparezca el contenedor */
+  }
+
+  /* 🔹 Si no hay flags visibles, oculta solo el contenido, sin afectar el tamaño */
+  .hidden {
+    visibility: hidden;
+    height: 40px;
+  }
+
+  .flag-checkbox {
+    flex: 0 0 auto;
+  }
+}
+
+/* Botones */
+.button-group {
+  overflow-x: auto; /* Permite que aparezca scroll horizontal en caso de falta de espacio */
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: nowrap; /* ◀ Cambiado a nowrap para forzar una sola línea */
+  
+  button {
+    min-width: 120px;
+  }
+}
+
+
+/* Estilos para snackbar */
+::ng-deep .success-snackbar {
+  background-color: #28a745 !important; /* Verde */
+  color: #fff !important;
+}
+
+::ng-deep .error-snackbar {
+  background-color: #dc3545 !important; /* Rojo */
+  color: #fff !important;
+}
+
+/* Contenedor de carga */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+
+  p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+}
+.oculto {
+  visibility: hidden; /* o opacity: 0 */
+  height: 50px; /* Mantener espacio */
+}

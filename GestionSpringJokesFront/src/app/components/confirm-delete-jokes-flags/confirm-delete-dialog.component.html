@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Eliminar Flag</h2>
+<mat-dialog-content>
+  <p *ngIf="data.jokesCount > 0">
+    La flag <strong>{{ data.flagName }}</strong> está asociada a {{ data.jokesCount }} chistes.
+    ¿Qué acción deseas realizar?
+  </p>
+  <p *ngIf="data.jokesCount === 0">
+    ¿Estás seguro de que quieres eliminar la flag <strong>{{ data.flagName }}</strong>?
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  
+  <!-- Si hay jokes asociados se muestran dos botones -->
+  <ng-container *ngIf="data.jokesCount > 0; else simpleDelete">
+    <button mat-button color="warn" (click)="onDesvincular()">Desvincular y Eliminar</button>
+    <button mat-button color="warn" (click)="onDeleteWithJokes()">Eliminar Flag y sus Jokes</button>
+  </ng-container>
+  
+  <!-- Si no hay jokes se muestra un solo botón -->
+  <ng-template #simpleDelete>
+    <button mat-button color="warn" (click)="onConfirm()">Eliminar</button>
+  </ng-template>
+</mat-dialog-actions>

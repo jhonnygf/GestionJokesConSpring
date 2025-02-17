@@ -1,0 +1,39 @@
+.type-detail-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #1976d2;
+  }
+  
+  .detail {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  
+  button {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+  }
+  .joke-list {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+  
+  .joke-list li {
+    background: #f9f9f9;
+    border-left: 4px solid #1976d2;
+    padding: 10px;
+    margin-bottom: 10px;
+    list-style: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
